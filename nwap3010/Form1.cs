@@ -8,6 +8,7 @@ namespace nwap3010
     {
         SqlConnection con;
         SqlCommand cmd;
+        SqlCommand cmdtedarik;
 
         string constr = "Data Source=10.10.88.248;Initial Catalog=dbnwind;Persist Security Info=True;User ID=sa;Password=sanane";
 
@@ -23,9 +24,10 @@ namespace nwap3010
             con.Open();
             cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = $"insert into Products(ProductName) values('{txturunad.Text.ToString()}')";
+            cmd.CommandText = $"insert into Products(ProductName,SupplierID,CategoryID,UnitPrice) " +
+                $"values('{txturunad.Text.ToString()}',{cmbtedarik.SelectedValue},{cmbkategori.SelectedValue},{nupbirimfiyat.Value})";
             cmd.ExecuteNonQuery();
-            con.Close();0
+            con.Close();
             tazele();
 
         }
@@ -53,6 +55,8 @@ namespace nwap3010
             con = new SqlConnection(constr);
             con.Open();
 
+
+            //Kategori bilgileri cmbkategori combosuna aktarýlýyor
             cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "select CategoryID,CategoryName from Categories";
@@ -66,14 +70,18 @@ namespace nwap3010
             cmbkategori.DataSource = dt;
 
 
+            //Tedarikçiler bilgileri cmbtedarik combosuna aktarýlýyor
 
-
-
-
-
-
-
-
+            cmdtedarik = new SqlCommand();
+            cmdtedarik.Connection = con;
+            cmdtedarik.CommandText = "select SupplierID,CompanyName from Suppliers";
+            cmdtedarik.ExecuteNonQuery();
+            DataTable dt2 = new DataTable();
+            SqlDataAdapter da2 = new SqlDataAdapter(cmdtedarik);
+            da2.Fill(dt2);
+            cmbtedarik.ValueMember = "SupplierID";
+            cmbtedarik.DisplayMember = "CompanyName";
+            cmbtedarik.DataSource = dt2;
 
             con.Close();
 

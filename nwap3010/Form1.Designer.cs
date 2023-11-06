@@ -174,9 +174,9 @@
             // 
             // btnsil
             // 
-            btnsil.Location = new Point(513, 45);
+            btnsil.Location = new Point(393, 45);
             btnsil.Name = "btnsil";
-            btnsil.Size = new Size(75, 23);
+            btnsil.Size = new Size(224, 23);
             btnsil.TabIndex = 1;
             btnsil.Text = "Sil";
             btnsil.UseVisualStyleBackColor = true;
