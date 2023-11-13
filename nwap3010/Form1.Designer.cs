@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnspsil = new Button();
+            btnspara = new Button();
+            btnspkaydet = new Button();
             nupbirimfiyat = new NumericUpDown();
             cmbtedarik = new ComboBox();
             label5 = new Label();
@@ -51,6 +54,9 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnspsil);
+            panel1.Controls.Add(btnspara);
+            panel1.Controls.Add(btnspkaydet);
             panel1.Controls.Add(nupbirimfiyat);
             panel1.Controls.Add(cmbtedarik);
             panel1.Controls.Add(label5);
@@ -68,8 +74,38 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(862, 177);
+            panel1.Size = new Size(862, 204);
             panel1.TabIndex = 1;
+            // 
+            // btnspsil
+            // 
+            btnspsil.Location = new Point(656, 135);
+            btnspsil.Name = "btnspsil";
+            btnspsil.Size = new Size(75, 52);
+            btnspsil.TabIndex = 6;
+            btnspsil.Text = "Procedure Sil";
+            btnspsil.UseVisualStyleBackColor = true;
+            btnspsil.Click += btnspsil_Click;
+            // 
+            // btnspara
+            // 
+            btnspara.Location = new Point(656, 77);
+            btnspara.Name = "btnspara";
+            btnspara.Size = new Size(75, 52);
+            btnspara.TabIndex = 6;
+            btnspara.Text = "Procedure Ara";
+            btnspara.UseVisualStyleBackColor = true;
+            btnspara.Click += btnspara_Click;
+            // 
+            // btnspkaydet
+            // 
+            btnspkaydet.Location = new Point(656, 16);
+            btnspkaydet.Name = "btnspkaydet";
+            btnspkaydet.Size = new Size(75, 52);
+            btnspkaydet.TabIndex = 6;
+            btnspkaydet.Text = "Procedur Kaydet";
+            btnspkaydet.UseVisualStyleBackColor = true;
+            btnspkaydet.Click += btnspkaydet_Click;
             // 
             // nupbirimfiyat
             // 
@@ -101,7 +137,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(24, 106);
             label4.Name = "label4";
-            label4.Size = new Size(75, 15);
+            label4.Size = new Size(74, 15);
             label4.TabIndex = 3;
             label4.Text = "Tedarikçi Adı";
             // 
@@ -156,21 +192,23 @@
             // 
             // btnguncel
             // 
-            btnguncel.Location = new Point(513, 111);
+            btnguncel.Location = new Point(412, 102);
             btnguncel.Name = "btnguncel";
             btnguncel.Size = new Size(75, 23);
             btnguncel.TabIndex = 1;
             btnguncel.Text = "Güncelle";
             btnguncel.UseVisualStyleBackColor = true;
+            btnguncel.Click += btnguncel_Click;
             // 
             // btnbul
             // 
-            btnbul.Location = new Point(513, 82);
+            btnbul.Location = new Point(412, 74);
             btnbul.Name = "btnbul";
             btnbul.Size = new Size(75, 23);
             btnbul.TabIndex = 1;
             btnbul.Text = "Bul";
             btnbul.UseVisualStyleBackColor = true;
+            btnbul.Click += btnbul_Click;
             // 
             // btnsil
             // 
@@ -180,6 +218,7 @@
             btnsil.TabIndex = 1;
             btnsil.Text = "Sil";
             btnsil.UseVisualStyleBackColor = true;
+            btnsil.Click += btnsil_Click;
             // 
             // btnkaydet
             // 
@@ -195,11 +234,12 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 177);
+            dataGridView1.Location = new Point(0, 204);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(862, 502);
+            dataGridView1.Size = new Size(862, 475);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Form1
             // 
@@ -236,5 +276,8 @@
         private Button btnguncel;
         private Button btnbul;
         private Button btnsil;
+        private Button btnspsil;
+        private Button btnspara;
+        private Button btnspkaydet;
     }
 }
